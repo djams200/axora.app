@@ -737,18 +737,6 @@
       backdrop-filter: blur(5px);
     }
     
-    .code-box {
-      background: linear-gradient(135deg, var(--dark-light), var(--dark));
-      padding: 20px;
-      border-radius: 15px;
-      width: 90%;
-      max-width: 600px;
-      max-height: 80vh;
-      overflow-y: auto;
-      box-shadow: var(--hover-shadow);
-      border: 1px solid rgba(106, 13, 173, 0.3);
-    }
-    
     .close-btn {
       position: absolute;
       top: 12px;
@@ -1068,6 +1056,41 @@
       color: white;
     }
     
+    /* الحالة في صفحة التفاصيل - تحت التطوير */
+    .activity-detail-status {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: rgba(255, 204, 0, 0.15);
+      padding: 12px;
+      border-radius: 12px;
+      margin-top: 15px;
+      border: 2px solid #ffcc00;
+      animation: glow 2s infinite alternate;
+    }
+    
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+      }
+      to {
+        box-shadow: 0 0 20px rgba(255, 204, 0, 0.6);
+      }
+    }
+    
+    .activity-detail-status-icon {
+      font-size: 1.5rem;
+      color: #ffcc00;
+    }
+    
+    .activity-detail-status-text {
+      color: #ffcc00;
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+    }
+    
     .activity-detail-actions {
       display: flex;
       gap: 12px;
@@ -1327,6 +1350,145 @@
       font-size: 0.85rem;
     }
     
+    /* مؤشر التحميل */
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: var(--secondary);
+      animation: spin 0.8s linear infinite;
+      margin-right: 8px;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* صفحة فقدان الاتصال - المحدثة */
+    .offline-page {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      padding: 30px 20px;
+      text-align: center;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .offline-icon {
+      font-size: 5rem;
+      color: #ff6b6b;
+      margin-bottom: 25px;
+      animation: pulse 2s infinite;
+      text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    .offline-title {
+      font-size: 2.3rem;
+      color: #ff6b6b;
+      margin-bottom: 20px;
+      font-weight: bold;
+      text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+    }
+    
+    .offline-message {
+      font-size: 1.4rem;
+      color: white;
+      margin-bottom: 25px;
+      max-width: 600px;
+      line-height: 1.6;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 107, 107, 0.2);
+    }
+    
+    .offline-message p {
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    
+    .offline-message p:last-child {
+      margin-bottom: 0;
+      color: #ffcc00;
+      font-weight: bold;
+    }
+    
+    .offline-tip {
+      background: rgba(255, 107, 107, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+      border: 1px solid rgba(255, 107, 107, 0.2);
+      max-width: 500px;
+      text-align: right;
+    }
+    
+    .offline-tip h4 {
+      color: #ffcc00;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      text-align: center;
+    }
+    
+    .offline-tip ul {
+      list-style: none;
+      padding-right: 10px;
+      color: #ddd;
+    }
+    
+    .offline-tip li {
+      margin-bottom: 12px;
+      position: relative;
+      padding-right: 30px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+    
+    .offline-tip li:before {
+      content: "•";
+      color: #ffcc00;
+      font-weight: bold;
+      font-size: 1.5rem;
+      position: absolute;
+      right: 0;
+      top: -2px;
+    }
+    
+    .connection-check {
+      margin-top: 30px;
+      font-size: 1rem;
+      color: #aaa;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 107, 107, 0.2);
+    }
+    
     /* تحسينات إضافية للاستجابة على الأجهزة المحمولة */
     @media (max-width: 768px) {
       .container {
@@ -1537,6 +1699,28 @@
         width: 100%;
         margin: 4px 0;
       }
+      
+      /* صفحة فقدان الاتصال على الجوال */
+      .offline-icon {
+        font-size: 4rem;
+      }
+      
+      .offline-title {
+        font-size: 1.8rem;
+      }
+      
+      .offline-message {
+        font-size: 1.1rem;
+        padding: 15px;
+      }
+      
+      .offline-tip {
+        padding: 15px;
+      }
+      
+      .offline-tip li {
+        font-size: 1rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -1569,6 +1753,29 @@
         padding: 10px;
         margin: 8px 0;
       }
+      
+      /* صفحة فقدان الاتصال على الجوال الصغير */
+      .offline-icon {
+        font-size: 3rem;
+      }
+      
+      .offline-title {
+        font-size: 1.5rem;
+      }
+      
+      .offline-message {
+        font-size: 1rem;
+        padding: 12px;
+      }
+      
+      .offline-tip {
+        padding: 12px;
+      }
+      
+      .offline-tip li {
+        font-size: 0.9rem;
+        padding-right: 25px;
+      }
     }
     
     /* Animations */
@@ -1590,6 +1797,34 @@
   </style>
 </head>
 <body>
+  <!-- صفحة فقدان الاتصال - المحدثة -->
+  <div class="offline-page hidden" id="offlinePage">
+    <div class="offline-icon">❌</div>
+    <h1 class="offline-title">تعذر الاتصال بالإنترنت</h1>
+    
+    <div class="offline-message">
+      <p>يبان بلي الاتصال بالإنترنت راهو مقطوع</p>
+      <p>يمكن من بيانات الهاتف (ليدوني) ولا من الويفي</p>
+      <p>التطبيق يحتاج اتصال بالإنترنت باش يخدم مليح</p>
+      <p>راح يتم الرجوع للصفحة الرئيسية تلقائيا<br>كي يرجع الاتصال</p>
+    </div>
+    
+    <div class="offline-tip">
+      <h4>💡 نصائح باش تحل المشكل:</h4>
+      <ul>
+        <li>تأكد بلي بيانات الهاتف (ليدوني) ولا الويفي خدامين</li>
+        <li>عاود شعل و طفي المودام</li>
+        <li>شوف إذا وضع الطيران (مود أفيون) شاعل طفيه</li>
+        <li>إذا رجعت الأنترنت وما تحدّثتش الصفحة حدث الصفحة</li>
+      </ul>
+    </div>
+    
+    <div class="connection-check" id="connectionStatus">
+      ⏳ جاري التحقق من الاتصال...
+    </div>
+  </div>
+
+  <!-- التطبيق الرئيسي -->
   <header>
     <div class="container">
       <div class="logo-container">
@@ -1751,7 +1986,9 @@
           </div>
           
           <div style="display: flex; gap: 10px;">
-            <button class="btn" onclick="addActivity()"><i class="fas fa-save"></i> إضافة النشاط</button>
+            <button class="btn" onclick="addActivity()" id="addActivityBtn">
+              <i class="fas fa-save"></i> إضافة النشاط
+            </button>
             <button class="btn btn-outline" onclick="clearForm()"><i class="fas fa-times"></i> مسح الحقول</button>
           </div>
         </div>
@@ -1760,60 +1997,13 @@
         <div class="card">
           <div class="section-header">
             <h4><i class="fas fa-calendar-alt"></i> الأنشطة المضافة</h4>
-            <button class="btn btn-outline" onclick="refreshActivities()">
+            <button class="btn btn-outline" onclick="refreshActivities()" id="refreshBtn">
               <i class="fas fa-sync-alt"></i> تحديث
             </button>
           </div>
           <div class="content-list" id="activitiesList">
             <!-- سيتم ملء هذا القسم بالأنشطة عبر JavaScript -->
           </div>
-        </div>
-        
-        <!-- قسم مميزات النظام (نقله إلى قسم القائد) -->
-        <div class="card">
-          <h3><i class="fas fa-info-circle"></i> مميزات النظام</h3>
-          <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
-            <thead>
-              <tr>
-                <th style="padding: 12px 8px; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.1);">الميزة</th>
-                <th style="padding: 12px 8px; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.1);">الوصف</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">📝 إدارة الأنشطة</td>
-                <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">إضافة وتعديل وحذف الأنشطة بكل يسر</td>
-              </tr>
-              <tr>
-                <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">🎯 تصنيف الأنشطة</td>
-                <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">تصنيف النشاط حسب النوع لتسهيل التصفح</td>
-              </tr>
-              <tr>
-                <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">🚪 نوع الغرفة</td>
-                <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">اختيار غرفة مفتوحة أو مغلقة حسب احتياج النشاط</td>
-              </tr>
-              <tr>
-                <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">🔄 تغيير نوع الغرفة</td>
-                <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">إمكانية تغيير نوع الغرفة يدويًا للأنشطة المضافة</td>
-              </tr>
-              <tr>
-                <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">⏰ عرض الوقت</td>
-                <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">توضيح متى يبدأ وينتهي النشاط</td>
-              </tr>
-              <tr>
-                <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">🔗 دخول مباشر</td>
-                <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">زر دخول مباشر للقائد والشركاء</td>
-              </tr>
-              <tr>
-                <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">📋 نسخ الرسالة والرابط</td>
-                <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">نسخ رسالة مخصصة مع رابط النشاط</td>
-              </tr>
-              <tr>
-                <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">🔐 أمان متكامل</td>
-                <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">كود سري للقائد فقط</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </div>
@@ -1842,41 +2032,6 @@
       <div class="activities-container" id="activitiesContainer">
         <!-- سيتم ملء هذا القسم بالأنشطة عبر JavaScript -->
       </div>
-      
-      <!-- قسم مميزات النظام للشريك -->
-      <div class="card">
-        <h3><i class="fas fa-info-circle"></i> مميزات النظام للشركاء</h3>
-        <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
-          <thead>
-            <tr>
-              <th style="padding: 12px 8px; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.1);">الميزة</th>
-              <th style="padding: 12px 8px; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.1);">الوصف</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">🎯 تصنيف الأنشطة</td>
-              <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">تصنيف النشاط حسب النوع لتسهيل التصفح</td>
-            </tr>
-            <tr>
-              <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">🚪 نوع الغرفة</td>
-              <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">معرفة ما إذا كانت الغرفة مفتوحة أو مغلقة</td>
-            </tr>
-            <tr>
-              <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">⏰ عرض الوقت</td>
-              <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">توضيح متى يبدأ وينتهي النشاط</td>
-            </tr>
-            <tr>
-              <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">🔗 دخول مباشر</td>
-              <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">زر دخول مباشر للأنشطة</td>
-            </tr>
-            <tr>
-              <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">📋 نسخ الرسالة والرابط</td>
-              <td style="padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.05);">نسخ رسالة مخصصة مع رابط النشاط</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
     </div>
   </div>
 
@@ -1889,7 +2044,7 @@
     <iframe id="meetFrame" class="meet-iframe" src="" allow="camera; microphone; fullscreen; display-capture"></iframe>
   </div>
 
-  <!-- نافذة تفاصيل النشاط - تصميم جديد مشابه لـ N.vision -->
+  <!-- نافذة تفاصيل النشاط -->
   <div class="activity-detail-modal hidden" id="activityDetailModal">
     <div class="activity-detail-box">
       <div class="activity-detail-header">
@@ -1928,11 +2083,15 @@
             <div class="activity-detail-info-value" id="detailEndTime">--:--</div>
           </div>
           
+          <!-- حالة النشاط - تحت التطوير -->
           <div class="activity-detail-info-item">
             <div class="activity-detail-info-label">
-              <i class="fas fa-link"></i> الحالة
+              <i class="fas fa-info-circle"></i> حالة النشاط
             </div>
-            <div class="activity-detail-info-value" id="detailActivityStatus">متاح</div>
+            <div class="activity-detail-status">
+              <i class="fas fa-lock activity-detail-status-icon"></i>
+              <span class="activity-detail-status-text">تحت التطوير 🔧</span>
+            </div>
           </div>
         </div>
       </div>
@@ -2012,7 +2171,7 @@
   </footer>
 
   <script>
-    // ✅ إعدادات Supabase - استخدام REST API مباشرة
+    // ✅ إعدادات Supabase
     const SUPABASE_URL = 'https://lrjbpvkatwxmvqcnpior.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_t9oNqRZpbZfitWE2qdIjsw_u6XLfPmK';
     
@@ -2025,7 +2184,14 @@
       currentActivityLink: null,
       selectedActivityType: "",
       selectedFilterType: "all",
-      isLoading: false
+      isLoading: false,
+      timeoutId: null,
+      isOnline: navigator.onLine,
+      reconnectAttempts: 0,
+      maxReconnectAttempts: 10,
+      connectionCheckInterval: null,
+      reconnectInterval: null,
+      activityStatusTimers: {}
     };
 
     // ✅ عناصر DOM
@@ -2046,6 +2212,10 @@
     const totalActivitiesElement = document.getElementById('totalActivities');
     const meetWindow = document.getElementById('meetWindow');
     const meetFrame = document.getElementById('meetFrame');
+    const addActivityBtn = document.getElementById('addActivityBtn');
+    const refreshBtn = document.getElementById('refreshBtn');
+    const offlinePage = document.getElementById('offlinePage');
+    const connectionStatus = document.getElementById('connectionStatus');
     
     // ✅ عناصر نافذة تفاصيل النشاط
     const activityDetailModal = document.getElementById('activityDetailModal');
@@ -2056,7 +2226,6 @@
     const detailStartTime = document.getElementById('detailStartTime');
     const detailEndTime = document.getElementById('detailEndTime');
     const detailActivityDate = document.getElementById('detailActivityDate');
-    const detailActivityStatus = document.getElementById('detailActivityStatus');
     const detailJoinButton = document.getElementById('detailJoinButton');
     
     // ✅ عناصر نافذة اختيار نوع النشاط
@@ -2103,48 +2272,256 @@
       }
     ];
 
-    // ✅ 1. دالة للتواصل مع Supabase عبر REST API
-    async function supabaseFetch(endpoint, method = 'GET', data = null) {
-      try {
-        const url = `${SUPABASE_URL}/rest/v1/${endpoint}`;
-        
-        const options = {
-          method,
-          headers: {
-            'apikey': SUPABASE_KEY,
-            'Authorization': `Bearer ${SUPABASE_KEY}`,
-            'Content-Type': 'application/json',
-            'Prefer': 'return=representation'
-          }
-        };
-        
-        if (data) {
-          options.body = JSON.stringify(data);
+    // ✅ 1. نظام مراقبة الاتصال المحسن
+    function initConnectionMonitoring() {
+      console.log('بدء مراقبة حالة الاتصال...');
+      
+      // تحديث حالة الاتصال الحالية
+      state.isOnline = navigator.onLine;
+      updateConnectionStatus();
+      
+      // مراقبة تغييرات حالة الاتصال
+      window.addEventListener('online', handleConnectionChange);
+      window.addEventListener('offline', handleConnectionChange);
+      
+      // بدء فحص دوري للاتصال
+      state.connectionCheckInterval = setInterval(checkConnection, 3000);
+      
+      // التحقق المبدئي
+      checkConnection();
+    }
+    
+    function handleConnectionChange() {
+      console.log('حدث تغيير في حالة الاتصال:', navigator.onLine ? 'متصل' : 'غير متصل');
+      const wasOnline = state.isOnline;
+      state.isOnline = navigator.onLine;
+      
+      if (!state.isOnline && wasOnline) {
+        showOfflinePage();
+      } else if (state.isOnline && !wasOnline) {
+        hideOfflinePage();
+      }
+      
+      updateConnectionStatus();
+    }
+    
+    function checkConnection() {
+      if (!navigator.onLine && state.isOnline) {
+        console.log('تم اكتشاف فقدان الاتصال');
+        state.isOnline = false;
+        showOfflinePage();
+      } else if (navigator.onLine && !state.isOnline) {
+        console.log('تم اكتشاف استعادة الاتصال');
+        state.isOnline = true;
+        hideOfflinePage();
+      }
+      
+      updateConnectionStatus();
+    }
+    
+    function updateConnectionStatus() {
+      if (connectionStatus) {
+        if (state.isOnline) {
+          connectionStatus.innerHTML = '✅ الاتصال نشط';
+          connectionStatus.style.color = '#27ae60';
+        } else {
+          connectionStatus.innerHTML = '📡 جاري محاولة الاتصال تلقائيًا...';
+          connectionStatus.style.color = '#ffcc00';
         }
-        
-        const response = await fetch(url, options);
-        
-        if (!response.ok) {
-          throw new Error(`خطأ في الخادم: ${response.status}`);
-        }
-        
-        return await response.json();
-      } catch (error) {
-        console.error('خطأ في supabaseFetch:', error);
-        showNotification('حدث خطأ في الاتصال بقاعدة البيانات', 'error');
-        throw error;
       }
     }
+    
+    function showOfflinePage() {
+      console.log('عرض صفحة فقدان الاتصال');
+      offlinePage.classList.remove('hidden');
+      
+      // إخفاء المحتوى الرئيسي
+      document.querySelector('header').style.display = 'none';
+      document.querySelector('.container').style.display = 'none';
+      document.querySelector('footer').style.display = 'none';
+      
+      // إخفاء جميع النوافذ المفتوحة
+      hideAllModals();
+      closeMeetWindow();
+      
+      // بدء محاولات إعادة الاتصال
+      startReconnectionAttempts();
+    }
+    
+    function hideOfflinePage() {
+      console.log('إخفاء صفحة فقدان الاتصال');
+      offlinePage.classList.add('hidden');
+      
+      // إعادة عرض المحتوى الرئيسي
+      document.querySelector('header').style.display = 'block';
+      document.querySelector('.container').style.display = 'block';
+      document.querySelector('footer').style.display = 'block';
+      
+      // إيقاف محاولات إعادة الاتصال
+      stopReconnectionAttempts();
+      
+      // العودة إلى الصفحة الرئيسية تلقائيًا
+      showMain();
+      
+      // إعادة تحميل البيانات
+      loadData();
+      
+      showNotification('تم استعادة الاتصال بالإنترنت بنجاح', 'success');
+    }
+    
+    function startReconnectionAttempts() {
+      if (state.reconnectInterval) {
+        clearInterval(state.reconnectInterval);
+      }
+      
+      state.reconnectAttempts = 0;
+      state.reconnectInterval = setInterval(() => {
+        state.reconnectAttempts++;
+        
+        if (connectionStatus) {
+          connectionStatus.innerHTML = `🔄 محاولة الاتصال ${state.reconnectAttempts}/${state.maxReconnectAttempts}...`;
+        }
+        
+        if (navigator.onLine) {
+          console.log('تم اكتشاف اتصال جديد، إعادة التوجيه...');
+          hideOfflinePage();
+        } else if (state.reconnectAttempts >= state.maxReconnectAttempts) {
+          if (connectionStatus) {
+            connectionStatus.innerHTML = '⏸️ توقفت المحاولات، جاري الانتظار...';
+            connectionStatus.style.color = '#ff6b6b';
+          }
+          clearInterval(state.reconnectInterval);
+          
+          // إعادة تشغيل المحاولات بعد فترة
+          setTimeout(() => {
+            startReconnectionAttempts();
+          }, 10000);
+        }
+      }, 2000);
+    }
+    
+    function stopReconnectionAttempts() {
+      if (state.reconnectInterval) {
+        clearInterval(state.reconnectInterval);
+        state.reconnectInterval = null;
+      }
+      state.reconnectAttempts = 0;
+    }
+    
+    function hideAllModals() {
+      // إغلاق جميع النوافذ المنبثقة
+      document.querySelectorAll('.code-modal').forEach(modal => modal.remove());
+      activityDetailModal.classList.add('hidden');
+      activityTypeModal.classList.add('hidden');
+      filterActivityTypeModal.classList.add('hidden');
+    }
 
-    // ✅ 2. تحميل البيانات من Supabase
+    // ✅ 2. دالة للتواصل مع Supabase
+    async function supabaseFetch(endpoint, method = 'GET', data = null) {
+      // التحقق من الاتصال أولاً
+      if (!state.isOnline) {
+        throw new Error('لا يوجد اتصال بالإنترنت');
+      }
+      
+      // إلغاء أي طلب سابق إذا كان هناك
+      if (state.timeoutId) {
+        clearTimeout(state.timeoutId);
+      }
+      
+      return new Promise((resolve, reject) => {
+        // مهلة 3 ثواني
+        const timeoutPromise = new Promise((_, rejectTimeout) => {
+          state.timeoutId = setTimeout(() => {
+            rejectTimeout(new Error('انتهت مهلة الاتصال'));
+          }, 3000);
+        });
+        
+        const fetchPromise = (async () => {
+          try {
+            const url = `${SUPABASE_URL}/rest/v1/${endpoint}`;
+            
+            const options = {
+              method,
+              headers: {
+                'apikey': SUPABASE_KEY,
+                'Authorization': `Bearer ${SUPABASE_KEY}`,
+                'Content-Type': 'application/json',
+                'Prefer': 'return=representation'
+              },
+              signal: AbortSignal.timeout(3000)
+            };
+            
+            if (data) {
+              options.body = JSON.stringify(data);
+            }
+            
+            const response = await fetch(url, options);
+            
+            if (!response.ok) {
+              throw new Error(`خطأ في الخادم: ${response.status}`);
+            }
+            
+            return await response.json();
+          } catch (error) {
+            console.error('خطأ في supabaseFetch:', error);
+            
+            // إذا كان الخطأ متعلقًا بالاتصال، تحديث الحالة
+            if (error.message.includes('انتهت مهلة الاتصال') || 
+                error.message.includes('Failed to fetch') ||
+                error.name === 'AbortError' ||
+                error.message.includes('Network request failed')) {
+              
+              if (state.isOnline) {
+                // الاتصال كان نشطًا ولكن الطلب فشل
+                if (!offlinePage.classList.contains('hidden')) {
+                  showOfflinePage();
+                }
+              }
+            }
+            
+            throw error;
+          }
+        })();
+        
+        // التنافس بين الوعود
+        Promise.race([fetchPromise, timeoutPromise])
+          .then(resolve)
+          .catch(error => {
+            // في حالة الفشل، نستخدم البيانات المحلية
+            console.warn('فشل الاتصال بالسيرفر، استخدام البيانات المحلية:', error.message);
+            resolve(null);
+          });
+      });
+    }
+
+    // ✅ 3. تحميل البيانات من Supabase
     async function loadData() {
+      // التحقق من الاتصال أولاً
+      if (!state.isOnline) {
+        console.log('لا يوجد اتصال بالإنترنت، استخدام البيانات المحلية');
+        useLocalData();
+        return;
+      }
+      
       try {
         state.isLoading = true;
-        showNotification('جاري تحميل البيانات...', 'success');
         
+        // عرض مؤشر تحميل بسيط
+        if (refreshBtn) {
+          const originalHTML = refreshBtn.innerHTML;
+          refreshBtn.innerHTML = '<span class="loading"></span> جاري التحميل...';
+          refreshBtn.disabled = true;
+        }
+        
+        // تحديث فوري من البيانات المحلية أولاً
+        updateStats();
+        renderActivitiesForLeader();
+        renderActivitiesForPartners();
+        
+        // محاولة التحميل من السيرفر في الخلفية
         const data = await supabaseFetch('activities?select=*&order=created_at.desc');
         
-        if (data) {
+        if (data && data.length > 0) {
           state.activities = data.map(item => ({
             id: item.id.toString(),
             type: item.type,
@@ -2159,27 +2536,74 @@
             created_at: item.created_at
           }));
           
-          showNotification('تم تحميل البيانات بنجاح', 'success');
+          // حفظ نسخة احتياطية محلية
+          saveLocalBackup();
+          
+          // تحديث واجهة المستخدم فوراً
+          updateStats();
+          renderActivitiesForLeader();
+          renderActivitiesForPartners();
+          
+          showNotification('تم تحديث البيانات بنجاح', 'success');
         }
-        
-        updateStats();
       } catch (error) {
         console.error('خطأ في loadData:', error);
-        // محاولة استخدام localStorage كنسخة احتياطية
-        const localData = localStorage.getItem('activities_backup');
-        if (localData) {
-          state.activities = JSON.parse(localData);
-          showNotification('تم تحميل البيانات من النسخة الاحتياطية', 'warning');
-        }
+        useLocalData();
       } finally {
         state.isLoading = false;
+        
+        // إعادة زر التحديث إلى وضعه الطبيعي
+        if (refreshBtn) {
+          refreshBtn.innerHTML = '<i class="fas fa-sync-alt"></i> تحديث';
+          refreshBtn.disabled = false;
+        }
       }
     }
+    
+    function useLocalData() {
+      const localData = localStorage.getItem('activities_backup');
+      if (localData) {
+        state.activities = JSON.parse(localData);
+        updateStats();
+        renderActivitiesForLeader();
+        renderActivitiesForPartners();
+        showNotification('تم تحميل البيانات من النسخة الاحتياطية', 'warning');
+      }
+    }
+    
+    function saveLocalBackup() {
+      localStorage.setItem('activities_backup', JSON.stringify(state.activities));
+    }
 
-    // ✅ 3. إضافة نشاط جديد إلى Supabase
+    // ✅ 4. إضافة نشاط جديد إلى Supabase
     async function addActivityToSupabase(activity) {
-      try {
-        const data = await supabaseFetch('activities', 'POST', {
+      return new Promise((resolve) => {
+        // التحقق من الاتصال أولاً
+        if (!state.isOnline) {
+          showNotification('لا يوجد اتصال بالإنترنت، سيتم حفظ النشاط محلياً', 'warning');
+          addActivityLocally(activity);
+          resolve(null);
+          return;
+        }
+        
+        // تحديث واجهة المستخدم فوراً
+        const tempId = Date.now().toString();
+        const tempActivity = {
+          ...activity,
+          id: tempId,
+          date: new Date().toLocaleDateString('ar-AR'),
+          created_at: new Date().toISOString()
+        };
+        
+        // إضافة مؤقتة للبيانات
+        state.activities.unshift(tempActivity);
+        updateStats();
+        renderActivitiesForLeader();
+        
+        showNotification('جاري إضافة النشاط...', 'success');
+        
+        // محاولة الحفظ في الخلفية
+        supabaseFetch('activities', 'POST', {
           type: activity.type,
           room_type: activity.roomType,
           title: activity.title,
@@ -2188,259 +2612,166 @@
           end_time: activity.endTime,
           link: activity.link,
           custom_message: activity.customMessage
+        }).then(data => {
+          if (data && data.length > 0) {
+            // تحديث الـ ID الحقيقي
+            const savedActivity = data[0];
+            const index = state.activities.findIndex(a => a.id === tempId);
+            if (index !== -1) {
+              state.activities[index] = {
+                id: savedActivity.id.toString(),
+                type: savedActivity.type,
+                roomType: savedActivity.room_type,
+                title: savedActivity.title,
+                description: savedActivity.description,
+                startTime: savedActivity.start_time,
+                endTime: savedActivity.end_time,
+                link: savedActivity.link,
+                customMessage: savedActivity.custom_message,
+                date: new Date(savedActivity.created_at).toLocaleDateString('ar-AR'),
+                created_at: savedActivity.created_at
+              };
+              
+              // حفظ نسخة احتياطية محلية
+              saveLocalBackup();
+              
+              // تحديث العرض
+              renderActivitiesForLeader();
+              updateStats();
+            }
+            
+            showNotification('تم إضافة النشاط بنجاح', 'success');
+            resolve(savedActivity);
+          } else {
+            resolve(null);
+          }
+        }).catch(error => {
+          console.error('خطأ في addActivityToSupabase:', error);
+          showNotification('تم حفظ النشاط محلياً', 'warning');
+          resolve(tempActivity);
         });
-        
-        if (data && data.length > 0) {
-          // حفظ نسخة احتياطية محلية
-          saveLocalBackup(data[0]);
-          
-          showNotification('تم إضافة النشاط بنجاح', 'success');
-          return data[0];
-        }
-        
-        return null;
-      } catch (error) {
-        console.error('خطأ في addActivityToSupabase:', error);
-        showNotification('حدث خطأ في إضافة النشاط', 'error');
-        return null;
-      }
+      });
+    }
+    
+    function addActivityLocally(activity) {
+      const tempId = Date.now().toString();
+      const tempActivity = {
+        ...activity,
+        id: tempId,
+        date: new Date().toLocaleDateString('ar-AR'),
+        created_at: new Date().toISOString()
+      };
+      
+      state.activities.unshift(tempActivity);
+      saveLocalBackup();
+      updateStats();
+      renderActivitiesForLeader();
     }
 
-    // ✅ 4. تحديث نشاط في Supabase
+    // ✅ 5. تحديث نشاط في Supabase
     async function updateActivityInSupabase(activityId, updates) {
-      try {
-        const data = await supabaseFetch(`activities?id=eq.${activityId}`, 'PATCH', {
-          room_type: updates.roomType
-        });
-        
-        showNotification('تم تحديث النشاط بنجاح', 'success');
-        return true;
-      } catch (error) {
-        console.error('خطأ في updateActivityInSupabase:', error);
-        showNotification('حدث خطأ في تحديث النشاط', 'error');
-        return false;
-      }
-    }
-
-    // ✅ 5. حذف نشاط من Supabase
-    async function deleteActivityFromSupabase(activityId) {
-      try {
-        await supabaseFetch(`activities?id=eq.${activityId}`, 'DELETE');
-        
-        showNotification('تم حذف النشاط بنجاح', 'success');
-        return true;
-      } catch (error) {
-        console.error('خطأ في deleteActivityFromSupabase:', error);
-        showNotification('حدث خطأ في حذف النشاط', 'error');
-        return false;
-      }
-    }
-
-    // ✅ 6. حفظ نسخة احتياطية محلية
-    function saveLocalBackup(activity) {
-      try {
-        let backups = JSON.parse(localStorage.getItem('activities_backup') || '[]');
-        backups.push({
-          ...activity,
-          local_save: new Date().toISOString()
-        });
-        localStorage.setItem('activities_backup', JSON.stringify(backups.slice(-50))); // حفظ آخر 50 نشاط
-      } catch (error) {
-        console.error('خطأ في حفظ النسخة الاحتياطية:', error);
-      }
-    }
-
-    // ✅ تحديث الإحصائيات
-    function updateStats() {
-      const projects = state.activities.filter(a => a.type === 'project').length;
-      const meetings = state.activities.filter(a => a.type === 'meeting').length;
-      const workshops = state.activities.filter(a => a.type === 'workshop').length;
-      const trainings = state.activities.filter(a => a.type === 'training').length;
-      const total = state.activities.length;
-      
-      projectsCount.textContent = projects;
-      meetingsCount.textContent = meetings;
-      workshopsCount.textContent = workshops;
-      trainingsCount.textContent = trainings;
-      totalActivitiesElement.textContent = total;
-    }
-
-    // ✅ عرض تسجيل الدخول للقائد
-    function showLeaderLogin() {
-      mainScreen.classList.add('hidden');
-      partnerSection.classList.add('hidden');
-      leaderSection.classList.remove('hidden');
-      authForm.classList.remove('hidden');
-      leaderDashboard.classList.add('hidden');
-      
-      document.getElementById('accessCode').value = '';
-      codeStatus.classList.add('hidden');
-    }
-
-    // ✅ عرض قسم الشركاء
-    function showPartnerSection() {
-      mainScreen.classList.add('hidden');
-      leaderSection.classList.add('hidden');
-      partnerSection.classList.remove('hidden');
-      renderActivitiesForPartners();
-    }
-
-    // ✅ العودة إلى الشاشة الرئيسية
-    function showMain() {
-      mainScreen.classList.remove('hidden');
-      leaderSection.classList.add('hidden');
-      partnerSection.classList.add('hidden');
-    }
-
-    // ✅ التحقق من رمز الدخول
-    function checkAccessCode() {
-      const enteredCode = document.getElementById('accessCode').value.trim();
-      
-      if (enteredCode === LEADER_ACCESS_CODE) {
-        state.isAuthenticated = true;
-        authForm.classList.add('hidden');
-        leaderDashboard.classList.remove('hidden');
-        renderActivitiesForLeader();
-        showNotification('تم الدخول بنجاح إلى لوحة القائد');
-      } else {
-        codeStatus.textContent = "رمز الدخول غير صحيح، الرجاء المحاولة مرة أخرى";
-        codeStatus.classList.add('alert-error');
-        codeStatus.classList.remove('hidden');
-      }
-    }
-
-    // ✅ عرض نافذة اختيار نوع النشاط
-    function showActivityTypeModal() {
-      activityTypesGrid.innerHTML = '';
-      
-      activityTypes.forEach(type => {
-        const typeElement = document.createElement('div');
-        typeElement.className = `activity-type-item ${state.selectedActivityType === type.id ? 'selected' : ''}`;
-        typeElement.setAttribute('data-type', type.id);
-        typeElement.onclick = () => selectActivityType(type.id);
-        
-        typeElement.innerHTML = `
-          <div class="activity-type-icon">
-            <i class="${type.icon}"></i>
-          </div>
-          <div class="activity-type-name">${type.name}</div>
-          <div class="activity-type-desc">${type.description}</div>
-        `;
-        
-        activityTypesGrid.appendChild(typeElement);
-      });
-      
-      activityTypeModal.classList.remove('hidden');
-    }
-
-    // ✅ إغلاق نافذة اختيار نوع النشاط
-    function closeActivityTypeModal() {
-      activityTypeModal.classList.add('hidden');
-    }
-
-    // ✅ اختيار نوع النشاط
-    function selectActivityType(typeId) {
-      document.querySelectorAll('.activity-type-item').forEach(item => {
-        item.classList.remove('selected');
-      });
-      
-      document.querySelector(`.activity-type-item[data-type="${typeId}"]`).classList.add('selected');
-      state.selectedActivityType = typeId;
-    }
-
-    // ✅ تأكيد اختيار نوع النشاط
-    function confirmActivityType() {
-      if (state.selectedActivityType) {
-        const selectedType = activityTypes.find(type => type.id === state.selectedActivityType);
-        selectedActivityTypeText.textContent = selectedType.name;
-        activityTypeInput.value = state.selectedActivityType;
-        closeActivityTypeModal();
-      } else {
-        showNotification('يرجى اختيار نوع النشاط', 'error');
-      }
-    }
-
-    // ✅ عرض نافذة تصفية نوع النشاط
-    function showFilterActivityTypeModal() {
-      filterActivityTypesGrid.innerHTML = '';
-      
-      // خيار "جميع الأنشطة"
-      const allElement = document.createElement('div');
-      allElement.className = `activity-type-item ${state.selectedFilterType === 'all' ? 'selected' : ''}`;
-      allElement.setAttribute('data-type', 'all');
-      allElement.onclick = () => selectFilterActivityType('all');
-      
-      allElement.innerHTML = `
-        <div class="activity-type-icon">
-          <i class="fas fa-layer-group"></i>
-        </div>
-        <div class="activity-type-name">جميع الأنشطة</div>
-        <div class="activity-type-desc">عرض جميع الأنشطة المتاحة</div>
-      `;
-      
-      filterActivityTypesGrid.appendChild(allElement);
-      
-      // أنواع الأنشطة
-      activityTypes.forEach(type => {
-        const typeElement = document.createElement('div');
-        typeElement.className = `activity-type-item ${state.selectedFilterType === type.id ? 'selected' : ''}`;
-        typeElement.setAttribute('data-type', type.id);
-        typeElement.onclick = () => selectFilterActivityType(type.id);
-        
-        typeElement.innerHTML = `
-          <div class="activity-type-icon">
-            <i class="${type.icon}"></i>
-          </div>
-          <div class="activity-type-name">${type.name}</div>
-          <div class="activity-type-desc">${type.description}</div>
-        `;
-        
-        filterActivityTypesGrid.appendChild(typeElement);
-      });
-      
-      filterActivityTypeModal.classList.remove('hidden');
-    }
-
-    // ✅ إغلاق نافذة تصفية نوع النشاط
-    function closeFilterActivityTypeModal() {
-      filterActivityTypeModal.classList.add('hidden');
-    }
-
-    // ✅ اختيار نوع النشاط للتصفية
-    function selectFilterActivityType(typeId) {
-      document.querySelectorAll('#filterActivityTypesGrid .activity-type-item').forEach(item => {
-        item.classList.remove('selected');
-      });
-      
-      document.querySelector(`#filterActivityTypesGrid .activity-type-item[data-type="${typeId}"]`).classList.add('selected');
-      state.selectedFilterType = typeId;
-    }
-
-    // ✅ تأكيد اختيار نوع النشاط للتصفية
-    function confirmFilterActivityType() {
-      if (state.selectedFilterType) {
-        if (state.selectedFilterType === 'all') {
-          selectedFilterTypeText.textContent = 'جميع الأنشطة';
-        } else {
-          const selectedType = activityTypes.find(type => type.id === state.selectedFilterType);
-          selectedFilterTypeText.textContent = selectedType.name;
+      return new Promise((resolve) => {
+        // التحقق من الاتصال أولاً
+        if (!state.isOnline) {
+          showNotification('لا يوجد اتصال، سيتم التحديث محلياً', 'warning');
+          updateActivityLocally(activityId, updates);
+          resolve(true);
+          return;
         }
         
-        filterSelectInput.value = state.selectedFilterType;
-        closeFilterActivityTypeModal();
+        // تحديث فوري محلياً
+        const activityIndex = state.activities.findIndex(a => a.id === activityId);
+        if (activityIndex !== -1) {
+          state.activities[activityIndex].roomType = updates.roomType;
+          
+          // تحديث واجهة المستخدم فوراً
+          renderActivitiesForLeader();
+          renderActivitiesForPartners();
+          
+          // حفظ نسخة احتياطية محلية
+          saveLocalBackup();
+        }
+        
+        // محاولة التحديث في الخلفية
+        supabaseFetch(`activities?id=eq.${activityId}`, 'PATCH', {
+          room_type: updates.roomType
+        }).then(() => {
+          showNotification('تم تحديث النشاط بنجاح', 'success');
+          resolve(true);
+        }).catch(error => {
+          console.error('خطأ في updateActivityInSupabase:', error);
+          showNotification('تم التحديث محلياً', 'warning');
+          resolve(true);
+        });
+      });
+    }
+    
+    function updateActivityLocally(activityId, updates) {
+      const activityIndex = state.activities.findIndex(a => a.id === activityId);
+      if (activityIndex !== -1) {
+        state.activities[activityIndex].roomType = updates.roomType;
+        saveLocalBackup();
+        renderActivitiesForLeader();
         renderActivitiesForPartners();
       }
     }
 
-    // ✅ الحصول على الوقت الحالي بدون ثواني فقط
-    function getCurrentTime() {
-      const now = new Date();
-      // فقط إزالة الثواني والأجزاء من الثواني
-      now.setSeconds(0, 0);
-      return now;
+    // ✅ 6. حذف نشاط من Supabase
+    async function deleteActivityFromSupabase(activityId) {
+      return new Promise((resolve) => {
+        // التحقق من الاتصال أولاً
+        if (!state.isOnline) {
+          showNotification('لا يوجد اتصال، سيتم الحذف محلياً', 'warning');
+          deleteActivityLocally(activityId);
+          resolve(true);
+          return;
+        }
+        
+        // حذف فوري محلياً
+        const activityIndex = state.activities.findIndex(a => a.id === activityId);
+        let deletedActivity = null;
+        
+        if (activityIndex !== -1) {
+          deletedActivity = state.activities[activityIndex];
+          state.activities.splice(activityIndex, 1);
+          
+          // تحديث واجهة المستخدم فوراً
+          updateStats();
+          renderActivitiesForLeader();
+          renderActivitiesForPartners();
+          
+          // حفظ نسخة احتياطية محلية
+          saveLocalBackup();
+        }
+        
+        showNotification('جاري حذف النشاط...', 'success');
+        
+        // محاولة الحذف في الخلفية
+        supabaseFetch(`activities?id=eq.${activityId}`, 'DELETE')
+          .then(() => {
+            showNotification('تم حذف النشاط بنجاح', 'success');
+            resolve(true);
+          })
+          .catch(error => {
+            console.error('خطأ في deleteActivityFromSupabase:', error);
+            showNotification('تم الحذف محلياً', 'warning');
+            resolve(true);
+          });
+      });
+    }
+    
+    function deleteActivityLocally(activityId) {
+      const activityIndex = state.activities.findIndex(a => a.id === activityId);
+      if (activityIndex !== -1) {
+        state.activities.splice(activityIndex, 1);
+        saveLocalBackup();
+        updateStats();
+        renderActivitiesForLeader();
+        renderActivitiesForPartners();
+      }
     }
 
-    // ✅ إضافة نشاط جديد - النسخة المعدلة
+    // ✅ 7. إضافة نشاط جديد
     async function addActivity() {
       const type = activityTypeInput.value;
       const roomType = document.getElementById('roomType').value;
@@ -2458,12 +2789,11 @@
       
       // تحويل وقت البدء إلى كائن Date
       const startDateTime = new Date(startTimeInput);
-      
-      // فقط إزالة الثواني، بدون تغيير الدقائق أو الساعات
       startDateTime.setSeconds(0, 0);
       
       // التحقق من أن وقت البدء ليس في الماضي
-      const currentTime = getCurrentTime();
+      const currentTime = new Date();
+      currentTime.setSeconds(0, 0);
       
       if (startDateTime < currentTime) {
         showNotification('لا يمكن إضافة نشاط بوقت بدء في الماضي', 'error');
@@ -2489,44 +2819,40 @@
         return;
       }
       
-      // استخدام التواريخ المحفوظة (بدون ثواني)
+      // إعداد بيانات النشاط
       const activity = {
         type: type,
         roomType: roomType,
         title: title,
         description: description,
-        startTime: startDateTime.toISOString(), // حفظ كتنسيق ISO كامل
+        startTime: startDateTime.toISOString(),
         endTime: endDateTime ? endDateTime.toISOString() : null,
         link: formattedLink,
         customMessage: customMessage
       };
       
       // إضافة النشاط
-      const savedActivity = await addActivityToSupabase(activity);
+      if (addActivityBtn) {
+        const originalHTML = addActivityBtn.innerHTML;
+        addActivityBtn.innerHTML = '<span class="loading"></span> جاري الإضافة...';
+        addActivityBtn.disabled = true;
+      }
       
-      if (savedActivity) {
-        const localActivity = {
-          id: savedActivity.id.toString(),
-          type: savedActivity.type,
-          roomType: savedActivity.room_type,
-          title: savedActivity.title,
-          description: savedActivity.description,
-          startTime: savedActivity.start_time,
-          endTime: savedActivity.end_time,
-          link: savedActivity.link,
-          customMessage: savedActivity.custom_message,
-          date: new Date(savedActivity.created_at).toLocaleDateString('ar-AR'),
-          created_at: savedActivity.created_at
-        };
-        
-        state.activities.unshift(localActivity);
-        renderActivitiesForLeader();
+      try {
+        await addActivityToSupabase(activity);
         clearForm();
-        updateStats();
+      } catch (error) {
+        console.error('خطأ في addActivity:', error);
+        showNotification('حدث خطأ في إضافة النشاط', 'error');
+      } finally {
+        if (addActivityBtn) {
+          addActivityBtn.innerHTML = '<i class="fas fa-save"></i> إضافة النشاط';
+          addActivityBtn.disabled = false;
+        }
       }
     }
 
-    // ✅ مسح الحقول
+    // ✅ 8. مسح الحقول
     function clearForm() {
       document.getElementById('activityTitle').value = '';
       document.getElementById('activityDescription').value = '';
@@ -2538,8 +2864,10 @@
       state.selectedActivityType = '';
     }
 
-    // ✅ عرض الأنشطة للقائد
+    // ✅ 9. عرض الأنشطة للقائد
     function renderActivitiesForLeader() {
+      if (!activitiesList) return;
+      
       activitiesList.innerHTML = '';
       
       if (state.activities.length === 0) {
@@ -2600,8 +2928,10 @@
       });
     }
 
-    // ✅ عرض الأنشطة للشركاء
+    // ✅ 10. عرض الأنشطة للشركاء
     function renderActivitiesForPartners() {
+      if (!activitiesContainer) return;
+      
       activitiesContainer.innerHTML = '';
       
       if (state.activities.length === 0) {
@@ -2617,7 +2947,7 @@
       
       let filteredActivities = state.activities;
       
-      const searchText = document.getElementById('searchInput').value.toLowerCase();
+      const searchText = document.getElementById('searchInput')?.value.toLowerCase() || '';
       if (searchText) {
         filteredActivities = filteredActivities.filter(activity => 
           activity.title.toLowerCase().includes(searchText) || 
@@ -2649,29 +2979,6 @@
         const activityElement = document.createElement('div');
         activityElement.className = 'activity-card';
         
-        // التحقق من حالة النشاط بناءً على الوقت الحالي
-        const now = getCurrentTime();
-        const startTime = new Date(activity.startTime);
-        const endTime = activity.endTime ? new Date(activity.endTime) : null;
-        
-        // ضبط الثواني والأجزاء من الثواني إلى صفر
-        startTime.setSeconds(0, 0);
-        if (endTime) endTime.setSeconds(0, 0);
-        
-        let status = '';
-        let statusColor = '';
-        
-        if (now < startTime) {
-          status = 'قادم';
-          statusColor = 'var(--secondary)';
-        } else if (now >= startTime && (endTime ? now <= endTime : true)) {
-          status = 'جاري الآن';
-          statusColor = 'var(--success)';
-        } else {
-          status = 'منتهي';
-          statusColor = 'var(--accent)';
-        }
-        
         // تحديد ما إذا كان يمكن الانضمام للنشاط
         const canJoin = activity.roomType === 'open';
         
@@ -2686,9 +2993,6 @@
             <div class="activity-time">
               <span>البدء: ${formatDateTime(activity.startTime)}</span>
               ${activity.endTime ? `<span>الانتهاء: ${formatDateTime(activity.endTime)}</span>` : ''}
-            </div>
-            <div style="margin: 8px 0; padding: 5px 10px; background: ${statusColor}; color: white; border-radius: 6px; display: inline-block; font-size: 0.8rem;">
-              ${status}
             </div>
             <div class="activity-actions">
               <button class="btn btn-outline" onclick="showActivityDetail('${activity.id}')">
@@ -2711,7 +3015,318 @@
       });
     }
 
-    // ✅ عرض نافذة نسخ للشريك
+    // ✅ 11. عرض تفاصيل النشاط
+    function showActivityDetail(activityId) {
+      const activity = state.activities.find(a => a.id === activityId);
+      if (activity) {
+        detailActivityTitle.textContent = activity.title;
+        detailActivityDescription.textContent = activity.description || 'لا يوجد وصف مفصل لهذا النشاط';
+        detailActivityType.textContent = getTypeText(activity.type);
+        detailRoomType.textContent = getRoomTypeText(activity.roomType);
+        detailStartTime.textContent = formatTime(activity.startTime);
+        detailEndTime.textContent = activity.endTime ? formatTime(activity.endTime) : 'غير محدد';
+        detailActivityDate.textContent = formatDate(activity.startTime);
+        
+        state.currentActivityLink = activity.link;
+        
+        // تحديث زر الانضمام بناءً على حالة الغرفة
+        const canJoin = activity.roomType === 'open';
+        if (canJoin) {
+          detailJoinButton.className = 'btn';
+          detailJoinButton.onclick = () => joinActivityFromDetail();
+          detailJoinButton.innerHTML = '<i class="fas fa-video"></i> انضم إلى النشاط';
+          detailJoinButton.disabled = false;
+        } else {
+          detailJoinButton.className = 'btn btn-disabled';
+          detailJoinButton.onclick = () => showNotification('الغرفة مغلقة، لا يمكن الانضمام حالياً', 'error');
+          detailJoinButton.innerHTML = '<i class="fas fa-lock"></i> الغرفة مغلقة';
+          detailJoinButton.disabled = true;
+        }
+        
+        activityDetailModal.classList.remove('hidden');
+      }
+    }
+
+    // ✅ 12. تحديث الأنشطة
+    async function refreshActivities() {
+      await loadData();
+      showNotification('تم تحديث قائمة الأنشطة');
+    }
+
+    // ✅ 13. الحصول على نص النوع
+    function getTypeText(type) {
+      const typeObj = activityTypes.find(t => t.id === type);
+      return typeObj ? typeObj.name : type;
+    }
+
+    // ✅ 14. الحصول على نص نوع الغرفة
+    function getRoomTypeText(roomType) {
+      const roomTypes = {
+        'open': 'غرفة مفتوحة',
+        'closed': 'غرفة مغلقة'
+      };
+      return roomTypes[roomType] || roomType;
+    }
+
+    // ✅ 15. تنسيق التاريخ والوقت
+    function formatDateTime(dateTimeStr) {
+      if (!dateTimeStr) return 'غير محدد';
+      const date = new Date(dateTimeStr);
+      
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const year = date.getFullYear();
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+      
+      return `${day}/${month}/${year} ${hours}:${minutes}`;
+    }
+
+    // ✅ 16. تنسيق التاريخ فقط
+    function formatDate(dateTimeStr) {
+      if (!dateTimeStr) return 'غير محدد';
+      const date = new Date(dateTimeStr);
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const year = date.getFullYear();
+      return `${day}/${month}/${year}`;
+    }
+
+    // ✅ 17. تنسيق الوقت فقط
+    function formatTime(dateTimeStr) {
+      if (!dateTimeStr) return 'غير محدد';
+      const date = new Date(dateTimeStr);
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+      return `${hours}:${minutes}`;
+    }
+
+    // ✅ 18. عرض الإشعارات
+    function showNotification(message, type = 'success') {
+      notification.style.backgroundColor = type === 'success' ? 'var(--success)' : 
+                                         type === 'error' ? 'var(--accent)' : 
+                                         type === 'warning' ? 'var(--warning)' : 'var(--primary)';
+      notificationText.textContent = message;
+      
+      // إضافة أيقونة حسب النوع
+      const icon = notification.querySelector('i');
+      icon.className = type === 'success' ? 'fas fa-check-circle' :
+                      type === 'error' ? 'fas fa-exclamation-circle' :
+                      type === 'warning' ? 'fas fa-exclamation-triangle' :
+                      'fas fa-info-circle';
+      
+      notification.style.display = 'flex';
+      
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, 3000);
+    }
+
+    // ✅ 19. تحويل الرابط إلى الشكل الصحيح
+    function formatMeetLink(input) {
+      let link = input.trim();
+      link = link.replace(/\s/g, '');
+      
+      if (link.startsWith('meet.google.com/')) {
+        return 'https://' + link;
+      }
+      
+      if (/^[a-z]{3}-[a-z]{4}-[a-z]{3}$/.test(link)) {
+        return 'https://meet.google.com/' + link;
+      }
+      
+      if (link.startsWith('https://')) {
+        return link;
+      }
+      
+      if (link.startsWith('http://')) {
+        return link.replace('http://', 'https://');
+      }
+      
+      return 'https://' + link;
+    }
+
+    // ✅ 20. التحقق من صحة الرابط
+    function isValidUrl(url) {
+      try {
+        new URL(url);
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    // ✅ 21. تحديث الإحصائيات
+    function updateStats() {
+      const projects = state.activities.filter(a => a.type === 'project').length;
+      const meetings = state.activities.filter(a => a.type === 'meeting').length;
+      const workshops = state.activities.filter(a => a.type === 'workshop').length;
+      const trainings = state.activities.filter(a => a.type === 'training').length;
+      const total = state.activities.length;
+      
+      projectsCount.textContent = projects;
+      meetingsCount.textContent = meetings;
+      workshopsCount.textContent = workshops;
+      trainingsCount.textContent = trainings;
+      totalActivitiesElement.textContent = total;
+    }
+
+    // ✅ بقية الدوال الأساسية
+    function showLeaderLogin() {
+      mainScreen.classList.add('hidden');
+      partnerSection.classList.add('hidden');
+      leaderSection.classList.remove('hidden');
+      authForm.classList.remove('hidden');
+      leaderDashboard.classList.add('hidden');
+      
+      document.getElementById('accessCode').value = '';
+      codeStatus.classList.add('hidden');
+    }
+
+    function showPartnerSection() {
+      mainScreen.classList.add('hidden');
+      leaderSection.classList.add('hidden');
+      partnerSection.classList.remove('hidden');
+      renderActivitiesForPartners();
+    }
+
+    function showMain() {
+      mainScreen.classList.remove('hidden');
+      leaderSection.classList.add('hidden');
+      partnerSection.classList.add('hidden');
+    }
+
+    function checkAccessCode() {
+      const enteredCode = document.getElementById('accessCode').value.trim();
+      
+      if (enteredCode === LEADER_ACCESS_CODE) {
+        state.isAuthenticated = true;
+        authForm.classList.add('hidden');
+        leaderDashboard.classList.remove('hidden');
+        renderActivitiesForLeader();
+        showNotification('تم الدخول بنجاح إلى لوحة القائد');
+      } else {
+        codeStatus.textContent = "رمز الدخول غير صحيح، الرجاء المحاولة مرة أخرى";
+        codeStatus.classList.add('alert-error');
+        codeStatus.classList.remove('hidden');
+      }
+    }
+
+    function showActivityTypeModal() {
+      activityTypesGrid.innerHTML = '';
+      
+      activityTypes.forEach(type => {
+        const typeElement = document.createElement('div');
+        typeElement.className = `activity-type-item ${state.selectedActivityType === type.id ? 'selected' : ''}`;
+        typeElement.setAttribute('data-type', type.id);
+        typeElement.onclick = () => selectActivityType(type.id);
+        
+        typeElement.innerHTML = `
+          <div class="activity-type-icon">
+            <i class="${type.icon}"></i>
+          </div>
+          <div class="activity-type-name">${type.name}</div>
+          <div class="activity-type-desc">${type.description}</div>
+        `;
+        
+        activityTypesGrid.appendChild(typeElement);
+      });
+      
+      activityTypeModal.classList.remove('hidden');
+    }
+
+    function closeActivityTypeModal() {
+      activityTypeModal.classList.add('hidden');
+    }
+
+    function selectActivityType(typeId) {
+      document.querySelectorAll('.activity-type-item').forEach(item => {
+        item.classList.remove('selected');
+      });
+      
+      document.querySelector(`.activity-type-item[data-type="${typeId}"]`).classList.add('selected');
+      state.selectedActivityType = typeId;
+    }
+
+    function confirmActivityType() {
+      if (state.selectedActivityType) {
+        const selectedType = activityTypes.find(type => type.id === state.selectedActivityType);
+        selectedActivityTypeText.textContent = selectedType.name;
+        activityTypeInput.value = state.selectedActivityType;
+        closeActivityTypeModal();
+      } else {
+        showNotification('يرجى اختيار نوع النشاط', 'error');
+      }
+    }
+
+    function showFilterActivityTypeModal() {
+      filterActivityTypesGrid.innerHTML = '';
+      
+      // خيار "جميع الأنشطة"
+      const allElement = document.createElement('div');
+      allElement.className = `activity-type-item ${state.selectedFilterType === 'all' ? 'selected' : ''}`;
+      allElement.setAttribute('data-type', 'all');
+      allElement.onclick = () => selectFilterActivityType('all');
+      
+      allElement.innerHTML = `
+        <div class="activity-type-icon">
+          <i class="fas fa-layer-group"></i>
+        </div>
+        <div class="activity-type-name">جميع الأنشطة</div>
+        <div class="activity-type-desc">عرض جميع الأنشطة المتاحة</div>
+      `;
+      
+      filterActivityTypesGrid.appendChild(allElement);
+      
+      // أنواع الأنشطة
+      activityTypes.forEach(type => {
+        const typeElement = document.createElement('div');
+        typeElement.className = `activity-type-item ${state.selectedFilterType === type.id ? 'selected' : ''}`;
+        typeElement.setAttribute('data-type', type.id);
+        typeElement.onclick = () => selectFilterActivityType(type.id);
+        
+        typeElement.innerHTML = `
+          <div class="activity-type-icon">
+            <i class="${type.icon}"></i>
+          </div>
+          <div class="activity-type-name">${type.name}</div>
+          <div class="activity-type-desc">${type.description}</div>
+        `;
+        
+        filterActivityTypesGrid.appendChild(typeElement);
+      });
+      
+      filterActivityTypeModal.classList.remove('hidden');
+    }
+
+    function closeFilterActivityTypeModal() {
+      filterActivityTypeModal.classList.add('hidden');
+    }
+
+    function selectFilterActivityType(typeId) {
+      document.querySelectorAll('#filterActivityTypesGrid .activity-type-item').forEach(item => {
+        item.classList.remove('selected');
+      });
+      
+      document.querySelector(`#filterActivityTypesGrid .activity-type-item[data-type="${typeId}"]`).classList.add('selected');
+      state.selectedFilterType = typeId;
+    }
+
+    function confirmFilterActivityType() {
+      if (state.selectedFilterType) {
+        if (state.selectedFilterType === 'all') {
+          selectedFilterTypeText.textContent = 'جميع الأنشطة';
+        } else {
+          const selectedType = activityTypes.find(type => type.id === state.selectedFilterType);
+          selectedFilterTypeText.textContent = selectedType.name;
+        }
+        
+        filterSelectInput.value = state.selectedFilterType;
+        closeFilterActivityTypeModal();
+        renderActivitiesForPartners();
+      }
+    }
+
     function showCopyModalForPartner(activityId) {
       const activity = state.activities.find(a => a.id === activityId);
       if (!activity) return;
@@ -2752,7 +3367,6 @@
       document.body.appendChild(modal);
     }
 
-    // ✅ عرض نافذة نسخ للقائد
     function showCopyModal(activityId) {
       const activity = state.activities.find(a => a.id === activityId);
       if (!activity) return;
@@ -2793,7 +3407,6 @@
       document.body.appendChild(modal);
     }
 
-    // ✅ نسخ الرسالة
     function copyMessage(activityId) {
       const activity = state.activities.find(a => a.id === activityId);
       if (!activity) return;
@@ -2811,7 +3424,6 @@
       }
     }
 
-    // ✅ نسخ الرابط فقط
     function copyLink(link, title = "") {
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(link).then(() => {
@@ -2824,7 +3436,6 @@
       }
     }
 
-    // ✅ الطريقة البديلة للنسخ
     function fallbackCopyTextToClipboard(text, title = "") {
       const textArea = document.createElement("textarea");
       textArea.value = text;
@@ -2851,64 +3462,11 @@
       document.body.removeChild(textArea);
     }
 
-    // ✅ عرض تفاصيل النشاط
-    function showActivityDetail(activityId) {
-      const activity = state.activities.find(a => a.id === activityId);
-      if (activity) {
-        detailActivityTitle.textContent = activity.title;
-        detailActivityDescription.textContent = activity.description || 'لا يوجد وصف مفصل لهذا النشاط';
-        detailActivityType.textContent = getTypeText(activity.type);
-        detailRoomType.textContent = getRoomTypeText(activity.roomType);
-        detailStartTime.textContent = formatTime(activity.startTime);
-        detailEndTime.textContent = activity.endTime ? formatTime(activity.endTime) : 'غير محدد';
-        detailActivityDate.textContent = formatDate(activity.startTime);
-        
-        const now = getCurrentTime();
-        const startTime = new Date(activity.startTime);
-        const endTime = activity.endTime ? new Date(activity.endTime) : null;
-        
-        // ضبط الثواني والأجزاء من الثواني إلى صفر
-        startTime.setSeconds(0, 0);
-        if (endTime) endTime.setSeconds(0, 0);
-        
-        if (now < startTime) {
-          detailActivityStatus.textContent = 'قادم';
-          detailActivityStatus.style.color = 'var(--secondary)';
-        } else if (now >= startTime && (endTime ? now <= endTime : true)) {
-          detailActivityStatus.textContent = 'جاري الآن';
-          detailActivityStatus.style.color = 'var(--success)';
-        } else {
-          detailActivityStatus.textContent = 'منتهي';
-          detailActivityStatus.style.color = 'var(--accent)';
-        }
-        
-        state.currentActivityLink = activity.link;
-        
-        // تحديث زر الانضمام بناءً على حالة الغرفة
-        const canJoin = activity.roomType === 'open';
-        if (canJoin) {
-          detailJoinButton.className = 'btn';
-          detailJoinButton.onclick = () => joinActivityFromDetail();
-          detailJoinButton.innerHTML = '<i class="fas fa-video"></i> انضم إلى النشاط';
-          detailJoinButton.disabled = false;
-        } else {
-          detailJoinButton.className = 'btn btn-disabled';
-          detailJoinButton.onclick = () => showNotification('الغرفة مغلقة، لا يمكن الانضمام حالياً', 'error');
-          detailJoinButton.innerHTML = '<i class="fas fa-lock"></i> الغرفة مغلقة';
-          detailJoinButton.disabled = true;
-        }
-        
-        activityDetailModal.classList.remove('hidden');
-      }
-    }
-
-    // ✅ إغلاق نافذة تفاصيل النشاط
     function closeActivityDetail() {
       activityDetailModal.classList.add('hidden');
       state.currentActivityLink = null;
     }
 
-    // ✅ الانضمام إلى النشاط من نافذة التفاصيل
     function joinActivityFromDetail() {
       if (state.currentActivityLink) {
         joinActivity(state.currentActivityLink, 'open');
@@ -2916,7 +3474,6 @@
       }
     }
 
-    // ✅ تغيير نوع الغرفة
     async function toggleRoomType(activityId) {
       const activity = state.activities.find(a => a.id === activityId);
       if (activity) {
@@ -2925,29 +3482,22 @@
         const success = await updateActivityInSupabase(activityId, { roomType: newRoomType });
         
         if (success) {
-          activity.roomType = newRoomType;
-          renderActivitiesForLeader();
           const roomTypeText = getRoomTypeText(newRoomType);
           showNotification(`تم تغيير نوع الغرفة إلى ${roomTypeText}`);
         }
       }
     }
 
-    // ✅ حذف نشاط
     async function deleteActivity(id) {
       if (confirm('هل أنت متأكد من حذف هذا النشاط؟')) {
         const success = await deleteActivityFromSupabase(id);
         
         if (success) {
-          state.activities = state.activities.filter(activity => activity.id !== id);
-          renderActivitiesForLeader();
-          updateStats();
           showNotification('تم حذف النشاط بنجاح');
         }
       }
     }
 
-    // ✅ الانضمام إلى النشاط
     function joinActivity(link, roomType) {
       if (roomType === 'closed') {
         showNotification('الغرفة مغلقة، لا يمكن الانضمام حالياً', 'error');
@@ -2957,7 +3507,6 @@
       openMeetInApp(link);
     }
 
-    // ✅ فتح المحاضرة داخل التطبيق
     function openMeetInApp(meetUrl) {
       meetFrame.src = meetUrl;
       meetWindow.classList.remove('hidden');
@@ -2967,7 +3516,6 @@
       document.querySelector('footer').style.display = 'none';
     }
 
-    // ✅ إغلاق نافذة المحاضرة
     function closeMeetWindow() {
       meetWindow.classList.add('hidden');
       meetFrame.src = '';
@@ -2977,114 +3525,18 @@
       document.querySelector('footer').style.display = 'block';
     }
 
-    // ✅ تحديث الأنشطة
-    async function refreshActivities() {
-      await loadData();
-      renderActivitiesForLeader();
-      showNotification('تم تحديث قائمة الأنشطة');
-    }
-
-    // ✅ الحصول على نص النوع
-    function getTypeText(type) {
-      const typeObj = activityTypes.find(t => t.id === type);
-      return typeObj ? typeObj.name : type;
-    }
-
-    // ✅ الحصول على نص نوع الغرفة
-    function getRoomTypeText(roomType) {
-      const roomTypes = {
-        'open': 'غرفة مفتوحة',
-        'closed': 'غرفة مغلقة'
-      };
-      return roomTypes[roomType] || roomType;
-    }
-
-    // ✅ تنسيق التاريخ والوقت بالساعات والدقائق فقط
-    function formatDateTime(dateTimeStr) {
-      if (!dateTimeStr) return 'غير محدد';
-      const date = new Date(dateTimeStr);
-      
-      // الحصول على التاريخ والوقت المحلي
-      const day = String(date.getDate()).padStart(2, '0');
-      const month = String(date.getMonth() + 1).padStart(2, '0');
-      const year = date.getFullYear();
-      const hours = String(date.getHours()).padStart(2, '0');
-      const minutes = String(date.getMinutes()).padStart(2, '0');
-      
-      return `${day}/${month}/${year} ${hours}:${minutes}`;
-    }
-
-    // ✅ تنسيق التاريخ فقط
-    function formatDate(dateTimeStr) {
-      if (!dateTimeStr) return 'غير محدد';
-      const date = new Date(dateTimeStr);
-      const day = String(date.getDate()).padStart(2, '0');
-      const month = String(date.getMonth() + 1).padStart(2, '0');
-      const year = date.getFullYear();
-      return `${day}/${month}/${year}`;
-    }
-
-    // ✅ تنسيق الوقت فقط بالساعات والدقائق
-    function formatTime(dateTimeStr) {
-      if (!dateTimeStr) return 'غير محدد';
-      const date = new Date(dateTimeStr);
-      const hours = String(date.getHours()).padStart(2, '0');
-      const minutes = String(date.getMinutes()).padStart(2, '0');
-      return `${hours}:${minutes}`;
-    }
-
-    // ✅ عرض الإشعارات
-    function showNotification(message, type = 'success') {
-      notification.style.backgroundColor = type === 'success' ? 'var(--success)' : 'var(--accent)';
-      notificationText.textContent = message;
-      notification.style.display = 'flex';
-      
-      setTimeout(() => {
-        notification.style.display = 'none';
-      }, 3000);
-    }
-
-    // ✅ تحويل الرابط إلى الشكل الصحيح
-    function formatMeetLink(input) {
-      let link = input.trim();
-      link = link.replace(/\s/g, '');
-      
-      if (link.startsWith('meet.google.com/')) {
-        return 'https://' + link;
-      }
-      
-      if (/^[a-z]{3}-[a-z]{4}-[a-z]{3}$/.test(link)) {
-        return 'https://meet.google.com/' + link;
-      }
-      
-      if (link.startsWith('https://')) {
-        return link;
-      }
-      
-      if (link.startsWith('http://')) {
-        return link.replace('http://', 'https://');
-      }
-      
-      return 'https://' + link;
-    }
-
-    // ✅ التحقق من صحة الرابط
-    function isValidUrl(url) {
-      try {
-        new URL(url);
-        return true;
-      } catch {
-        return false;
-      }
-    }
-
     // ✅ البحث والتصفية
-    document.getElementById('searchInput').addEventListener('input', function() {
+    document.getElementById('searchInput')?.addEventListener('input', function() {
       renderActivitiesForPartners();
     });
 
     // ✅ التهيئة الأولية
     document.addEventListener('DOMContentLoaded', function() {
+      console.log('بدء تشغيل التطبيق...');
+      
+      // بدء مراقبة حالة الاتصال
+      initConnectionMonitoring();
+      
       // تحميل البيانات عند بدء التشغيل
       loadData();
       
@@ -3104,50 +3556,11 @@
         startTimeInput.value = `${year}-${month}-${day}T${hours}:${minutes}`;
       }
       
-      // إضافة بعض الأنشطة الافتراضية إذا لم تكن موجودة
-      setTimeout(() => {
-        if (state.activities.length === 0) {
-          // إنشاء وقت في المستقبل (غدًا في نفس الوقت)
-          const tomorrow = new Date();
-          tomorrow.setDate(tomorrow.getDate() + 1);
-          tomorrow.setSeconds(0, 0);
-          
-          const endTime = new Date(tomorrow);
-          endTime.setHours(endTime.getHours() + 2);
-          
-          const defaultActivities = [
-            {
-              id: "1",
-              type: "project",
-              roomType: "open",
-              title: "عرض مشروع التسويق الرقمي",
-              description: "عرض شامل لمشروع التسويق الرقمي واستراتيجياته",
-              startTime: tomorrow.toISOString().slice(0, 16),
-              endTime: endTime.toISOString().slice(0, 16),
-              link: "https://meet.google.com/kua-wxis-rro",
-              customMessage: "*لقاء تدريبي*\n\nورشة تطوير المهارات\n\nمع المدرب المحترف",
-              date: new Date().toLocaleDateString('ar-AR'),
-              created_at: new Date().toISOString()
-            },
-            {
-              id: "2",
-              type: "training",
-              roomType: "closed",
-              title: "تدريب على مهارات الإلقاء",
-              description: "جلسة تدريبية مكثفة لتحسين مهارات الإلقاء والتقديم",
-              startTime: new Date(Date.now() + 86400000 * 2).toISOString().slice(0, 16),
-              endTime: new Date(Date.now() + 86400000 * 2 + 7200000).toISOString().slice(0, 16),
-              link: "https://meet.google.com/abc-defg-hij",
-              customMessage: "تدريب متقدم على مهارات الإلقاء والتقديم",
-              date: new Date().toLocaleDateString('ar-AR'),
-              created_at: new Date(Date.now() - 86400000).toISOString()
-            }
-          ];
-          
-          state.activities = defaultActivities;
-          updateStats();
-        }
-      }, 1000);
+      // التحقق المبدئي من الاتصال
+      if (!state.isOnline) {
+        console.log('لا يوجد اتصال بالإنترنت عند بدء التشغيل');
+        showOfflinePage();
+      }
     });
   </script>
 </body>
